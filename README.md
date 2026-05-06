@@ -9,6 +9,7 @@
 > - Added missing groups (4.1, 4.2, 5.1, 5.2, 6.1, 6.2)
 > - Fixed automatic calendar updates
 > - Fixed a bug where minutes were not recorded in the calendar — they were truncated, showing only hours. This was critical since outage schedules can start or end at half hours (e.g., 05:00-08:30)
+> - Extra fix for calendar appearance
 
 An integration for electricity shutdown schedules of [LvivOblEnergo](lvivoblenergo). Based on data from [EnergyUA][energyua].
 
@@ -31,7 +32,7 @@ If it doesn't work, adding this repository to HACS manually by adding this URL:
 
 1. Visit **HACS** → **Integrations** → **...** (in the top right) → **Custom repositories**
 1. Click **Add**
-1. Paste `https://github.com/tsdaemon/ha-lviv-poweroff` into the **URL** field
+1. Paste `https://github.com/stanislavkaliuk/ha-lviv-poweroff` into the **URL** field
 1. Chose **Integration** as a **Category**
 1. **Lviv PowerOff** will appear in the list of available integrations. Install it normally.
 
