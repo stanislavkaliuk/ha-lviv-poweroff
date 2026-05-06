@@ -49,6 +49,13 @@ SENSOR_TYPES: tuple[LvivPowerOffSensorDescription, ...] = (
         name="Next power on",
         val_func=lambda coordinator: coordinator.next_poweron,
     ),
+    LvivPowerOffSensorDescription(
+        key="lviv_poweroff_last_update",
+        icon="mdi:update",
+        device_class=SensorDeviceClass.TIMESTAMP,
+        name="Lviv PowerOff Last Update",
+        val_func=lambda coordinator: coordinator.last_success_update,
+    )
 )
 
 
