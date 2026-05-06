@@ -44,13 +44,19 @@ class LvivPowerOffCalendar(CoordinatorEntity[LvivPowerOffCoordinator], CalendarE
         self._attr_unique_id = (
             f"{coordinator.config_entry.entry_id}-" f"{coordinator.group}-" f"{self.entity_description.key}"
         )
+        self._last_event: CalendarEvent | None = None
 
     @property
     def event(self) -> CalendarEvent | None:
         """Return the current or next upcoming event or None."""
         now = dt_util.now()
         LOGGER.debug("Getting current event for %s", now)
-        return self.coordinator.get_event_at(now)
+        event = self.coordinator.get_event_at(now)
+        if event is None:
+            return self._last_event
+
+        self._last_event = event
+        return event
 
     async def async_get_events(
         self,
